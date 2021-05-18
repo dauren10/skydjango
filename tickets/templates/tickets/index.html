@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Django Forms</title>
+</head>
+<body>
+   
+        <form  method="post" novalidate>
+            {% csrf_token %}
+            {{ form }}
+            {% if form.subject.errors %}
+                <ol>
+                {% for error in form.subject.errors %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+                </ol>
+            {% endif %}
+           
+            <input type="submit" value="Submit">
+        </form>
+    
+</body>
+</html>
